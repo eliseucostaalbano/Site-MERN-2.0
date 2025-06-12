@@ -1,24 +1,27 @@
 const express = require('express');
+const notasRoutes = require('./routes/routes.js'); // Importa as rotas
 
 const app = express();
 app.use(express.json());
 
+app.use("/notas", notasRoutes);
 
-app.get('/', (req, res) => {
-  res.status(200).send('Olá, mundo do backend!');
-});
 
-app.post('/', (req, res) => {
-  res.status(201).json({ message: 'Dados recebidos com sucesso!' });
-});
+// app.get('/', (req, res) => {
+//   res.status(200).send('Olá, mundo do backend!');
+// });
 
-app.put('/', (req, res) => {
-  res.status(200).json({ message: 'Dados atualizados com sucesso!' });
-});
+// app.post('/', (req, res) => {
+//   res.status(201).json({ message: 'Dados recebidos com sucesso!' });
+// });
 
-app.delete('/', (req, res) => {
-  res.status(204).send();
-});
+// app.put('/', (req, res) => {
+//   res.status(200).json({ message: 'Dados atualizados com sucesso!' });
+// });
+
+// app.delete('/', (req, res) => {
+//   res.status(204).send();
+// });
 
 
 app.listen(3000, () => {
