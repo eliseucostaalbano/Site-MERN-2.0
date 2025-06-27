@@ -2,7 +2,7 @@ import Nota from "../model/nota.js";
 
 export async function getAllNotas(req, res) {
   try {
-    const notas = await Nota.find();
+    const notas = await Nota.find().sort({ createdAt: -1 });
     res.status(200).json(notas);
   } catch (error) {
     res.status(500).json({ message: "Erro ao buscar notas" });
@@ -21,7 +21,6 @@ export async function getNotasById(req, res) {
     res.status(500).json({ message: "Erro ao buscar nota" });
   }
 }
-
 
 export async function createNota(req, res) {
   try {
