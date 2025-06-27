@@ -1,6 +1,6 @@
 import Nota from "../model/nota.js";
 
-export async function getAllNotas(req, res) {
+export async function getAllNotas(_, res) {
   try {
     const notas = await Nota.find().sort({ createdAt: -1 });
     res.status(200).json(notas);
